@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 25vh;
+  color: var(--color);
+}
+p{
+    margin-bottom: 0; /*this is to overwrite the property of bootstrap which has martin-bottom:1rem*/
+}
+
+/* varibles     */
+:root {
+  --bordersize: 0.5px;
+  --widthHeight: 0.2rem;
+  --widthHeightPseudo: 250%;
+  --secondBorderMargin: -1px;
+  --color: #52514f;
+}
+.information {
+  text-align: center;
+  line-height: 2;
+  color: darkgreen;
+}
+
+.information button {
+  padding: 0.3rem 1rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0.5rem;
+}
+
+/* outerborder */
+.certificateOuterBorder {
+  /* height: 19rem;
+  width: 27rem; */
+  border: 3px solid #b2b3b5;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+
+/* innerborder */
+.secondaryBorder {
+  /* height: 18.3rem;
+  width: 26.35rem; */
+  border: var(--bordersize) solid #b1b2b4;
+  position: relative;
+  z-index: -2;
+  background-color: pink;
+  display: flex;
+}
+
+/* cornerbox */
+.smallCornerBox {
+  border: var(--bordersize) solid #b1b2b4;
+  width: var(--widthHeight);
+  height: var(--widthHeight);
+  position: absolute;
+}
+
+.smallCornerBox:nth-child(1) {
+  top: var(--secondBorderMargin);
+  left: var(--secondBorderMargin);
+  /* left: -1px; */
+}
+
+.smallCornerBox:nth-child(2) {
+  top: var(--secondBorderMargin);
+  right: var(--secondBorderMargin);
+}
+
+.smallCornerBox:nth-child(3) {
+  bottom: var(--secondBorderMargin);
+  right: var(--secondBorderMargin);
+}
+
+.smallCornerBox:nth-child(4) {
+  bottom: var(--secondBorderMargin);
+  left: var(--secondBorderMargin);
+}
+
+/* cornerDesign */
+.smallCornerBox:nth-child(1)::before,
+.smallCornerBox:nth-child(2)::before,
+.smallCornerBox:nth-child(3)::before,
+.smallCornerBox:nth-child(4)::before {
+  content: "";
+  width: var(--widthHeightPseudo);
+  height: var(--widthHeightPseudo);
+  position: absolute;
+  background-color: white;
+  border: var(--bordersize) solid #b1b2b4;
+  z-index: -1;
+}
+
+.smallCornerBox:nth-child(1)::before {
+  top: var(--secondBorderMargin);
+  left: var(--secondBorderMargin);
+  border-top-color: white;
+  border-left-color: white;
+}
+
+.smallCornerBox:nth-child(2)::before {
+  top: var(--secondBorderMargin);
+  right: var(--secondBorderMargin);
+  border-top-color: white;
+  border-right-color: white;
+}
+
+.smallCornerBox:nth-child(3)::before {
+  bottom: var(--secondBorderMargin);
+  right: var(--secondBorderMargin);
+  border-right-color: white;
+  border-bottom-color: white;
+}
+
+.smallCornerBox:nth-child(4)::before {
+  bottom: var(--secondBorderMargin);
+  left: var(--secondBorderMargin);
+  border-left-color: white;
+  border-bottom-color: white;
+}
+
+/* now inner content */
+/* to show corner smallbox in front of these div */
+.leftPart,
+.rightPart {
+  z-index: -3;
+}
+
+/* leftdiv */
+.leftPart {
+  width: 65%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+}
+
+.leftPart img {
+  width: 20%;
+  position: relative;
+  top: 5%;
+  left: 10%;
+}
+
+.leftPart p {
+  font-size: 0.35rem;
+  line-height: 1.4;
+  /* color: var(--color); */
+}
+
+.leftContent,
+.leftSignature {
+  margin: 12%;
+  margin-right: 0;
+}
+
+.leftSignature {
+  position: relative;
+  top: 5%;
+}
+#signature {
+  position: absolute;
+  top: -0.8rem;
+  left: 0.5rem;
+}
+
+.leftSignature p {
+  text-transform: capitalize;
+}
+
+.leftSignature span {
+  text-transform: uppercase;
+}
+
+.leftContent h3 {
+  font-size: 0.7rem;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  text-transform: uppercase;
+}
+
+.leftContent h6 {
+  font-size: 0.5rem;
+  font-family: "Courier New", Courier, monospace;
+  text-transform: capitalize;
+}
+
+.leftContent h6,
+.leftContent h3 {
+  line-height: 4;
+}
+
+/* rightdiv */
+.rightPart {
+  width: 35%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+}
+
+.rightPart img {
+  width: 95%;
+  position: absolute;
+  top: 50%;
+  margin-left: 2.5%;
+}
+
+.stampHolder {
+  width: 60%;
+  height: 75%;
+  background-color: #e2e7ef;
+  margin: 0 auto;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  position: relative;
+  border: 0.5px solid #b1b2b4;
+  margin-top: -1px;
+  margin-bottom: 25%;
+}
+
+.stampHolder h6 {
+  text-transform: uppercase;
+  font-size: 0.5rem;
+  text-align: center;
+  padding-top: 30%;
+}
+
+.rightPart p {
+  font-size: 0.25rem;
+  text-align: right;
+  /* color: var(--color); */
+  margin-right: 20%;
+}
+#studentId{
+    /* color:green; */
+    text-transform: uppercase;
+}
+
